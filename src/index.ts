@@ -35,7 +35,6 @@ const sendImage = (res: Response, id: string, path: string) => {
 }
 
 const uploadImage = (res: Response, id: string, path: string, data: any) => {
-    console.log(id, path, data);
     fs.writeFile(`public/${path}/${id}`, Buffer.from(data, "base64"), (err) => {
         sendImage(res, id, path);
     });
